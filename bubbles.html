@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish-Animation</title>
+</head>
+<style>
+    * {
+        cursor: url(./img/output-onlinepngtools.png), auto;
+
+    }
+
+    body {
+        background: url(./img/whater.jpg);
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+    }
+
+    span {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: url(./img/bubble.jpg);
+        background-size: cover;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: animates 4s linear infinite;
+        pointer-events: none;
+
+    }
+
+    @keyframes animates {
+        0% {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+
+        }
+
+        100% {
+            transform: translate(-50%, -1000%);
+            opacity: 0;
+        }
+    }
+</style>
+
+<body>
+
+    <script>
+
+
+        document.addEventListener("mousemove", function (e) {
+            var body = document.querySelector('body');
+            var bubbles = document.createElement("span");
+            var x = e.offsetX;
+            var y = e.offsetY;
+            bubbles.style.left = x + 'px';
+            bubbles.style.top = y + 'px';
+            var size = Math.random() * 100;
+            bubbles.style.width = size + 'px';
+            bubbles.style.height = size + 'px';
+
+            body.appendChild(bubbles);
+            setTimeout(function () {
+                bubbles.remove();
+            }, 2000)
+        }
+
+
+        )
+
+    </script>
+</body>
+
+</html>
